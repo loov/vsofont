@@ -49,6 +49,7 @@ func Parse(text string) (*Font, error) {
 	}
 
 	var gridWidth, gridHeight int
+	_ = gridHeight
 	var scaleWidth, scaleHeight float32
 
 	convert := func(coord int) Vector {
@@ -116,7 +117,7 @@ func Parse(text string) (*Font, error) {
 				return nil, fmt.Errorf("failed to scaling height: %v", err)
 			}
 
-			scalingWidth, scalingHeight = float32(width), float32(height)
+			scaleWidth, scaleHeight = float32(width), float32(height)
 		case "COLOR:":
 			// ignore
 			continue
